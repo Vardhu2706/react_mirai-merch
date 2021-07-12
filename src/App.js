@@ -5,6 +5,7 @@ import { Switch, Route } from "react-router-dom";
 // Importing Styles
 import "./App.css";
 import ShopPage from "./pages/shop/Shop-Component";
+import Header from "./components/header/Header-Component";
 
 // Importing Components
 import HomePage from "./pages/homepage/Homepage-Component";
@@ -12,10 +13,13 @@ import HomePage from "./pages/homepage/Homepage-Component";
 // Functional Component
 const App = () => {
   return (
-    <Switch>
-      <Route exact path="/" component={HomePage} />
-      <Route path="/shop" component={ShopPage} />
-    </Switch>
+    <>
+      <Header />
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/shop" component={ShopPage} />
+      </Switch>
+    </>
   );
 };
 
