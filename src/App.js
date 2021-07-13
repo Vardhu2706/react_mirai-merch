@@ -4,11 +4,12 @@ import { Switch, Route } from "react-router-dom";
 
 // Importing Styles
 import "./App.css";
-import ShopPage from "./pages/shop/Shop-Component";
-import Header from "./components/header/Header-Component";
 
 // Importing Components
 import HomePage from "./pages/homepage/Homepage-Component";
+import ShopPage from "./pages/shop/Shop-Component";
+import Header from "./components/header/Header-Component";
+import SignInAndSignUpComponent from "./pages/sign-in-and-sign-up/Sign-In-And-Sign-Up-Component";
 
 // Functional Component
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/shop" component={ShopPage} />
+        <Route path="/signin" component={SignInAndSignUpComponent} />
       </Switch>
     </>
   );
