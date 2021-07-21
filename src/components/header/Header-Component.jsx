@@ -1,6 +1,7 @@
 // Importing Helpers
 import React from "react";
 import { Link } from "react-router-dom";
+import { auth } from "../../firebase/Firebase-Util";
 
 // Importing Components
 
@@ -8,7 +9,7 @@ import { Link } from "react-router-dom";
 import "./Header-Styles.scss";
 
 // Functional Component
-const Header = () => (
+const Header = ({ currentUser }) => (
   <div className="header">
     <Link to="/" className="logo-container">
       Mirai Merch
@@ -20,9 +21,17 @@ const Header = () => (
       <Link className="option" to="/contact">
         CONTACT
       </Link>
-      <Link className="option" to="/signin">
-        LOGIN
-      </Link>
+      {currentUser ? (
+        <div className="option" onClick={() => auth.signOut()}>
+          SIGN OUT
+        </div>
+      ) : (
+        <div>
+          <Link className="option" to="/signin">
+            SIGN IN
+          </Link>
+        </div>
+      )}
     </div>
   </div>
 );

@@ -29,10 +29,15 @@ class App extends React.Component {
     });
   }
 
+  // Lifecycle Method - Component Will Unmount
+  componentWillUnmount() {
+    this.unsubscribeFromAuth();
+  }
+
   render() {
     return (
       <>
-        <Header />
+        <Header currentUser={this.state.currentUser} />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={ShopPage} />
