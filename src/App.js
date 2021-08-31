@@ -3,7 +3,7 @@
 // Importing Helpers
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import { auth } from "./firebase/Firebase-Utils";
+import { auth, createUserProfile } from "./firebase/Firebase-Utils";
 
 // Importing Styles
 import "./App.css";
@@ -30,9 +30,9 @@ class App extends React.Component {
 
   // Component Did Mount
   componentDidMount() {
-    this.unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
-      this.setState({ currentUser: user });
-      console.log(user);
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async (user) => {
+      createUserProfile(user);
+      // console.log(user);
     });
   }
 
