@@ -1,3 +1,5 @@
+// Header Component
+
 // Importing Helpers
 import React from "react";
 import { Link } from "react-router-dom";
@@ -5,12 +7,14 @@ import { auth } from "../../firebase/Firebase-Utils";
 import { connect } from "react-redux";
 
 // Importing Components
+import CartIcon from "../cart-icon/Cart-Icon-Component";
 
 // Importing Styles
 import "./Header-Styles.scss";
+import CartDropdown from "../cart-dropdown/Cart-Dropdown-Component";
 
 // Functional Component
-const Header = ({ currentUser }) => (
+const Header = ({ currentUser, hidden }) => (
   <div className="header">
     <Link to="/" className="logo-container">
       Mirai Merch
@@ -31,13 +35,16 @@ const Header = ({ currentUser }) => (
           SIGN IN
         </Link>
       )}
+      <CartIcon />
     </div>
+    {hidden && <CartDropdown />}
   </div>
 );
 
 // HOT to access Redux state
-const mapStateToProps = (state) => ({
-  currentUser: state.user.currentUser,
+const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => ({
+  currentUser,
+  hidden,
 });
 
 // Default Export
