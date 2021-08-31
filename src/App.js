@@ -2,7 +2,7 @@
 
 // Importing Helpers
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import { auth, createUserProfile } from "./firebase/Firebase-Utils";
 import { connect } from "react-redux";
 
@@ -60,12 +60,27 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/shop" component={ShopPage} />
-          <Route exact path="/signin" component={SignInAndSignUpComponent} />
+          <Route
+            exact
+            path="/signin"
+            render={() =>
+              this.props.currentUser ? (
+                <Redirect to="/" />
+              ) : (
+                <SignInAndSignUpComponent />
+              )
+            }
+          />
         </Switch>
       </>
     );
   }
 }
+
+// HOT
+const mapStateToProps = ({ user }) => ({
+  currentUser: user.currentUser,
+});
 
 // HOF
 const mapDispatchToProps = (dispatch) => ({
@@ -73,4 +88,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 // Default Export
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
