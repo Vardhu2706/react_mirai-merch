@@ -2,6 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../../firebase/Firebase-Utils";
+import { connect } from "react-redux";
 
 // Importing Components
 
@@ -34,5 +35,10 @@ const Header = ({ currentUser }) => (
   </div>
 );
 
+// HOT to access Redux state
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
+});
+
 // Default Export
-export default Header;
+export default connect(mapStateToProps)(Header);

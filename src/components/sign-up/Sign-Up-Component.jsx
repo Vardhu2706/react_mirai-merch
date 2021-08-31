@@ -72,8 +72,7 @@ class SignUp extends React.Component {
 
   // Render
   render() {
-    // Getting state variables
-    const { displayName, email, password, confirmPassword } = this.state;
+
 
     // Return
     return (

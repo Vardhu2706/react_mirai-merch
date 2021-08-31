@@ -14,6 +14,7 @@ class SignIn extends React.Component {
   constructor(props) {
     super(props);
 
+    // State Variables
     this.state = {
       email: "",
       password: "",
@@ -37,6 +38,7 @@ class SignIn extends React.Component {
       this.setState({ email: "", password: "" });
     } catch (error) {
       // If error, log error
+      alert("Login failed: Please check your login details.");
       console.log("Error signing in: ", error.message);
     }
   };
@@ -50,7 +52,7 @@ class SignIn extends React.Component {
   render() {
     return (
       <div className="sign-in">
-        <h1>I already have an account</h1>
+        <h1>I have an account</h1>
         <span>Sign in with your email and password.</span>
 
         {/* Form */}
@@ -76,7 +78,11 @@ class SignIn extends React.Component {
           />
           <div className="buttons">
             <CustomButton type="submit">Login</CustomButton>
-            <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
+            <CustomButton
+              onClick={signInWithGoogle}
+              isGoogleSignIn
+              type="button"
+            >
               Google Login
             </CustomButton>
           </div>
