@@ -11,7 +11,7 @@ import "./Cart-Dropdown-Styles.scss";
 const CartDropdown = () => (
   <div className="cart-dropdown">
     <div className="cart-items"></div>
-    <CustomButton>CHECKOUT</CustomButton>
+    <CustomButton className="custom-button">CHECKOUT</CustomButton>
   </div>
 );
 
