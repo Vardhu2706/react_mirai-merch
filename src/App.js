@@ -30,9 +30,26 @@ class App extends React.Component {
 
   // Component Did Mount
   componentDidMount() {
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async (user) => {
-      createUserProfile(user);
-      // console.log(user);
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
+      if (userAuth) {
+        const userRef = await createUserProfile(userAuth);
+
+        userRef.onSnapshot((snapshot) => {
+          this.setState(
+            {
+              currentUser: {
+                id: snapshot.id,
+                ...snapshot.data(),
+              },
+            },
+            () => {
+              console.log(this.state);
+            }
+          );
+        });
+      } else {
+        this.setState({ currentUser: userAuth });
+      }
     });
   }
 
@@ -43,6 +60,9 @@ class App extends React.Component {
 
   // Render
   render() {
+    console.log("Mirai Merch by Vardhu2706@GitHub");
+
+    // Return
     return (
       <>
         <Header currentUser={this.state.currentUser} />
