@@ -1,7 +1,7 @@
 // Importing Helpers
 import React from "react";
 import { Link } from "react-router-dom";
-import { auth } from "../../firebase/Firebase-Util";
+import { auth } from "../../firebase/Firebase-Utils";
 
 // Importing Components
 
@@ -21,18 +21,14 @@ const Header = ({ currentUser }) => (
       <Link className="option" to="/contact">
         CONTACT
       </Link>
-
-      {/* If Logged in, show SIGN OUT, otherwise SIGN IN. */}
       {currentUser ? (
         <div className="option" onClick={() => auth.signOut()}>
           SIGN OUT
         </div>
       ) : (
-        <div>
-          <Link className="option" to="/signin">
-            SIGN IN
-          </Link>
-        </div>
+        <Link className="option" to="/signin">
+          SIGN IN
+        </Link>
       )}
     </div>
   </div>

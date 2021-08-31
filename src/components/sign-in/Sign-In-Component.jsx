@@ -1,10 +1,10 @@
 // Importing Helpers
 import React from "react";
+import { signInWithGoogle } from "../../firebase/Firebase-Utils";
 
 // Importing Components
 import FormInput from "../form-input/Form-Input-Component";
 import CustomButton from "../custom-button/Custom-Button-Component";
-import { signInWithGoogle } from "../../firebase/Firebase-Util";
 
 // Importing Styles
 import "./Sign-In-Styles.scss";

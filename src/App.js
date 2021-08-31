@@ -3,6 +3,7 @@
 // Importing Helpers
 import React from "react";
 import { Switch, Route } from "react-router-dom";
+import { auth } from "./firebase/Firebase-Utils";
 
 // Importing Styles
 import "./App.css";
@@ -14,20 +15,46 @@ import Header from "./components/header/Header-Component";
 import SignInAndSignUpComponent from "./pages/sign-in-and-sign-up/Sign-In-And-Sign-Up-Component";
 
 // Class Component
-const App = () => {
-  // Render
+class App extends React.Component {
+  // Constructor
+  constructor(props) {
+    super(props);
 
-  return (
-    <>
-      <Header currentUser={this.state.currentUser} />
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/shop" component={ShopPage} />
-        <Route path="/signin" component={SignInAndSignUpComponent} />
-      </Switch>
-    </>
-  );
-};
+    this.state = {
+      currentUser: null,
+    };
+  }
+
+  // Auth Subscription
+  unsubscribeFromAuth = null;
+
+  // Component Did Mount
+  componentDidMount() {
+    this.unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
+      this.setState({ currentUser: user });
+      console.log(user);
+    });
+  }
+
+  // Component Will UnMount
+  componentWillUnmount() {
+    this.unsubscribeFromAuth();
+  }
+
+  // Render
+  render() {
+    return (
+      <>
+        <Header currentUser={this.state.currentUser} />
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/shop" component={ShopPage} />
+          <Route path="/signin" component={SignInAndSignUpComponent} />
+        </Switch>
+      </>
+    );
+  }
+}
 
 // Default Export
 export default App;
