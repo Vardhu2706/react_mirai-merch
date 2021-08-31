@@ -4,6 +4,9 @@
 import React from "react";
 import { connect } from "react-redux";
 
+// Importing Selector
+import { selectCartItems } from "../../redux/cart/Cart-Selector";
+
 // Importing Styles
 import "./Cart-Dropdown-Styles.scss";
 
@@ -24,9 +27,9 @@ const CartDropdown = ({ cartItems }) => (
 );
 
 // HOF
-const maptStateToProps = ({ cart: { cartItems } }) => ({
-  cartItems,
+const mapStateToProps = (state) => ({
+  cartItems: selectCartItems(state),
 });
 
 // Default Export
-export default connect(maptStateToProps)(CartDropdown);
+export default connect(mapStateToProps)(CartDropdown);
