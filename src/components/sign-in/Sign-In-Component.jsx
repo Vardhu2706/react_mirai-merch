@@ -1,6 +1,6 @@
 // Importing Helpers
 import React from "react";
-import { signInWithGoogle } from "../../firebase/Firebase-Utils";
+import { auth, signInWithGoogle } from "../../firebase/Firebase-Utils";
 
 // Importing Components
 import FormInput from "../form-input/Form-Input-Component";
@@ -21,9 +21,24 @@ class SignIn extends React.Component {
   }
 
   // Handle Submit
-  handleSubmit = (event) => {
+  handleSubmit = async (event) => {
+    // Preventing default form submit action
     event.preventDefault();
-    this.setState({ email: "", password: "" });
+
+    // Getting Email and Password entered stored in state
+    const { email, password } = this.state;
+
+    // Try logging in with given email and password
+    try {
+      // Sign In With Email And Password
+      await auth.signInWithEmailAndPassword(email, password);
+
+      // Reset Email and Password variables in state after signing in
+      this.setState({ email: "", password: "" });
+    } catch (error) {
+      // If error, log error
+      console.log("Error signing in: ", error.message);
+    }
   };
 
   // Handle Change
