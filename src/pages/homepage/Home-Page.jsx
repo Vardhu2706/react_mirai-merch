@@ -1,5 +1,6 @@
 // Importing Helpers
 import React from "react";
+// import {}
 
 // Importing Components
 import Directory from "../../components/directory/Directory-Component";
@@ -9,9 +10,11 @@ import "./Home-Styles.scss";
 
 // Functional Component
 const HomePage = () => (
+  <>
   <div className="homepage">
     <Directory />
   </div>
+  </>
 );
 
 // Default Export

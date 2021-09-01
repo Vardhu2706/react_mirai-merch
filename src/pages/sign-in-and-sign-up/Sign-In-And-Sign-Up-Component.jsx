@@ -1,5 +1,6 @@
 // Importing Helpers
 import React from "react";
+import { Helmet } from "react-helmet";
 
 // Importing Components
 import SignIn from "../../components/sign-in/Sign-In-Component";
@@ -11,10 +12,15 @@ import "./Sign-In-And-Sign-Up-Styles.scss";
 // Functional Component
 const SignInAndSignUpPage = () => {
   return (
-    <div className="sign-in-and-sign-up">
-      <SignIn />
-      <SignUp />
-    </div>
+    <>
+      <Helmet>
+        <title>Mirai Merch | Login </title>
+      </Helmet>
+      <div className="sign-in-and-sign-up">
+        <SignIn />
+        <SignUp />
+      </div>
+    </>
   );
 };
 
