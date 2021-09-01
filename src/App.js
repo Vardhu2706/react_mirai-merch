@@ -11,11 +11,11 @@ import { createStructuredSelector } from "reselect";
 import "./App.css";
 
 // Importing Components/Pages
-import HomePage from "./pages/homepage/Homepage-Component";
-import ShopPage from "./pages/shop/Shop-Component";
+import HomePage from "./pages/homepage/Home-Page";
+import ShopPage from "./pages/shop/Shop-Page";
 import Header from "./components/header/Header-Component";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/Sign-In-And-Sign-Up-Component";
-import CheckoutPage from "./pages/checkout/CheckoutPage-Component";
+import CheckoutPage from "./pages/checkout/Checkout-Page";
 
 // Importing Actions
 import { setCurrentUser } from "./redux/user/User-Actions";

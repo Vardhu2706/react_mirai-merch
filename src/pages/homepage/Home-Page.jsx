@@ -5,7 +5,7 @@ import React from "react";
 import Directory from "../../components/directory/Directory-Component";
 
 // Importing Styles
-import "./Homepage-Styles.scss";
+import "./Home-Styles.scss";
 
 // Functional Component
 const HomePage = () => (

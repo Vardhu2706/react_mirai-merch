@@ -5,7 +5,7 @@ import React from "react";
 import CollectionItem from "../collection-item/Collection-Item-Component";
 
 // Importing Styles
-import "./Collection-Styles.scss";
+import "./Collection-Preview-Styles.scss";
 
 // Functional Component
 const CollectionPreview = ({ title, items }) => {
