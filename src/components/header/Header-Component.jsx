@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import { auth } from "../../firebase/Firebase-Utils";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import { Helmet } from "react-helmet";
 
 // Importing Selectors
 import { selectCartHidden } from "../../redux/cart/Cart-Selector";
@@ -22,9 +21,7 @@ import CartDropdown from "../cart-dropdown/Cart-Dropdown-Component";
 // Functional Component
 const Header = ({ currentUser, hidden }) => (
   <>
-    <Helmet>
-      <title>Mirai Merch | Home</title>
-    </Helmet>
+
     <div className="header">
       <Link to="/" className="logo-container">
         Mirai Merch

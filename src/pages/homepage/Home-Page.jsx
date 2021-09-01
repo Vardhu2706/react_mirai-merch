@@ -1,6 +1,6 @@
 // Importing Helpers
 import React from "react";
-// import {}
+import { Helmet } from "react-helmet";
 
 // Importing Components
 import Directory from "../../components/directory/Directory-Component";
@@ -11,9 +11,12 @@ import "./Home-Styles.scss";
 // Functional Component
 const HomePage = () => (
   <>
-  <div className="homepage">
-    <Directory />
-  </div>
+    <Helmet>
+      <title>Mirai Merch | Home</title>
+    </Helmet>
+    <div className="homepage">
+      <Directory />
+    </div>
   </>
 );
 
