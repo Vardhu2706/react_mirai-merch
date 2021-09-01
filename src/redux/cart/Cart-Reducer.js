@@ -1,7 +1,7 @@
 // Cart Reducer
 
 // Importing Helpers
-import { addItemToCart } from "./Cart-Utils";
+import { addItemToCart, removeItemFromCart } from "./Cart-Utils";
 
 // Importing Constants
 import CartActionTypes from "./Cart-Types";
@@ -24,6 +24,18 @@ const cartReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         cartItems: addItemToCart(state.cartItems, action.payload),
+      };
+    case CartActionTypes.CLEAR_ITEM_FROM_CART:
+      return {
+        ...state,
+        cartItems: state.cartItems.filter(
+          (cartItem) => cartItem.id !== action.payload.id
+        ),
+      };
+    case CartActionTypes.REMOVE_ITEM:
+      return {
+        ...state,
+        cartItems: removeItemFromCart(state.cartItems, action.payload),
       };
     default:
       return state;
