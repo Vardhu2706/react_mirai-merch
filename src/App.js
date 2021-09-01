@@ -15,7 +15,7 @@ import HomePage from "./pages/homepage/Homepage-Component";
 import ShopPage from "./pages/shop/Shop-Component";
 import Header from "./components/header/Header-Component";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/Sign-In-And-Sign-Up-Component";
-import CheckoutPage from "./pages/checkout/Checkout-Component";
+import CheckoutPage from "./pages/checkout/CheckoutPage-Component";
 
 // Importing Actions
 import { setCurrentUser } from "./redux/user/User-Actions";
