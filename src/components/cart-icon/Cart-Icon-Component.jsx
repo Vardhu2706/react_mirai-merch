@@ -3,6 +3,7 @@
 // Importing Helpers
 import React from "react";
 import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
 // Importing Actions
 import { toggleCartHidden } from "../../redux/cart/Cart-Actions";
@@ -30,8 +31,8 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 // HOF - Map State To Props
-const mapStateToProps = (state) => ({
-  itemCount: selectCartItemsCount(state),
+const mapStateToProps = createStructuredSelector({
+  itemCount: selectCartItemsCount,
 });
 
 // Default Export

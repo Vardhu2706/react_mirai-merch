@@ -9,7 +9,7 @@ import SignUp from "../../components/sign-up/Sign-Up-Component";
 import "./Sign-In-And-Sign-Up-Styles.scss";
 
 // Functional Component
-const SignInAndSignUpComponent = () => {
+const SignInAndSignUpPage = () => {
   return (
     <div className="sign-in-and-sign-up">
       <SignIn />
@@ -19,4 +19,4 @@ const SignInAndSignUpComponent = () => {
 };
 
 // Default Export
-export default SignInAndSignUpComponent;
+export default SignInAndSignUpPage;
