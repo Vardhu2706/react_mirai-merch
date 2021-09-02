@@ -11,18 +11,19 @@ import { toggleCartHidden } from "../../redux/cart/Cart-Actions";
 // Importing Selectors
 import { selectCartItemsCount } from "../../redux/cart/Cart-Selector";
 
-// Importing Media
-import { ReactComponent as ShoppingIcon } from "../../assets/shopping-bag.svg";
-
 // Importing Styles
-import "./Cart-Icon-Styles.scss";
+import {
+  CartContainer,
+  ShoppingIcon,
+  ItemCountContainer,
+} from "./Cart-Icon-Styles";
 
 // Functional Component
 const CartIcon = ({ toggleCartHidden, itemCount }) => (
-  <div className="cart-icon" onClick={toggleCartHidden}>
-    <ShoppingIcon className="shopping-icon" />
-    <span className="item-count">{itemCount}</span>
-  </div>
+  <CartContainer onClick={toggleCartHidden}>
+    <ShoppingIcon />
+    <ItemCountContainer>{itemCount}</ItemCountContainer>
+  </CartContainer>
 );
 
 // HOF - Map Dispatch To Props

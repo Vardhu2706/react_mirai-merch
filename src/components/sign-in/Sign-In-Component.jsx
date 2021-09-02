@@ -7,7 +7,11 @@ import FormInput from "../form-input/Form-Input-Component";
 import CustomButton from "../custom-button/Custom-Button-Component";
 
 // Importing Styles
-import "./Sign-In-Styles.scss";
+import {
+  SignInContainer,
+  SignInTitle,
+  ButtonsBarContainer,
+} from "./Sign-In-Styles";
 
 // Class Component
 class SignIn extends React.Component {
@@ -51,8 +55,8 @@ class SignIn extends React.Component {
 
   render() {
     return (
-      <div className="sign-in">
-        <h1>I have an account</h1>
+      <SignInContainer>
+        <SignInTitle>I have an account</SignInTitle>
         <span>Sign in with your email and password.</span>
 
         {/* Form */}
@@ -76,7 +80,7 @@ class SignIn extends React.Component {
             label="Password"
             required
           />
-          <div className="buttons">
+          <ButtonsBarContainer>
             <CustomButton type="submit">Login</CustomButton>
             <CustomButton
               onClick={signInWithGoogle}
@@ -85,9 +89,9 @@ class SignIn extends React.Component {
             >
               Google Login
             </CustomButton>
-          </div>
+          </ButtonsBarContainer>
         </form>
-      </div>
+      </SignInContainer>
     );
   }
 }

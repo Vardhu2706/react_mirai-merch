@@ -9,7 +9,7 @@ import FormInput from "../form-input/Form-Input-Component";
 import CustomButton from "../custom-button/Custom-Button-Component";
 
 // Importing Styles
-import "./Sign-Up-Styles.scss";
+import { SignUpContainer, SignUpTitle } from "./Sign-Up-Styles";
 
 // Class Component
 class SignUp extends React.Component {
@@ -72,12 +72,10 @@ class SignUp extends React.Component {
 
   // Render
   render() {
-
-
     // Return
     return (
-      <div className="sign-up">
-        <h1 className="title">I do not have an account</h1>
+      <SignUpContainer>
+        <SignUpTitle>I do not have an account</SignUpTitle>
         <span>Sign up with an email and password.</span>
         <form className="sign-up-form" onSubmit={this.handleSubmit}>
           {/* Display Name */}
@@ -127,7 +125,7 @@ class SignUp extends React.Component {
             </CustomButton>
           </div>
         </form>
-      </div>
+      </SignUpContainer>
     );
   }
 }

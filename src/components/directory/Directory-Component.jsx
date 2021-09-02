@@ -10,15 +10,15 @@ import MenuItem from "../menu-item/Menu-Item-Component";
 import { selectDirectorySection } from "../../redux/directory/Directory-Selector";
 
 // Importing Styles
-import "./Directory-Styles.scss";
+import { DirectoryMenuContainer } from "./Directory-Styles";
 
 // Class Component
 const Directory = ({ sections }) => (
-  <div className="directory-menu">
+  <DirectoryMenuContainer>
     {sections.map(({ id, ...otherSectionProps }) => (
       <MenuItem key={id} {...otherSectionProps} />
     ))}
-  </div>
+  </DirectoryMenuContainer>
 );
 
 // HOF

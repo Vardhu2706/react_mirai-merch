@@ -11,7 +11,13 @@ import { selectCartItems, selectTotal } from "../../redux/cart/Cart-Selector";
 import { selectCurrentUser } from "../../redux/user/User-Selector";
 
 // Importing Styles
-import "./Checkout-Styles.scss";
+import {
+  CheckoutPageContainer,
+  CheckoutHeaderContainer,
+  HeaderBlockContainer,
+  TotalContainer,
+  WarningContainer,
+} from "./Checkout-Styles";
 
 // Importing Components
 import CheckoutItem from "../../components/checkout-item/Checkout-Item-Component";
@@ -30,38 +36,38 @@ const CheckoutPage = ({ cartItems, total, currentUser }) => {
       <Helmet>
         <title>Mirai Merch | Checkout</title>
       </Helmet>
-      <div className="checkout-page">
-        <div className="checkout-header">
-          <div className="header-block">
+      <CheckoutPageContainer>
+        <CheckoutHeaderContainer>
+          <HeaderBlockContainer>
             <span>Product</span>
-          </div>
-          <div className="header-block">
+          </HeaderBlockContainer>
+          <HeaderBlockContainer>
             <span>Description</span>
-          </div>
-          <div className="header-block">
+          </HeaderBlockContainer>
+          <HeaderBlockContainer>
             <span>Quantity</span>
-          </div>
-          <div className="header-block">
+          </HeaderBlockContainer>
+          <HeaderBlockContainer>
             <span>Price</span>
-          </div>
-          <div className="header-block">
+          </HeaderBlockContainer>
+          <HeaderBlockContainer>
             <span>Remove</span>
-          </div>
-        </div>
+          </HeaderBlockContainer>
+        </CheckoutHeaderContainer>
         {cartItems.map((cartItem) => (
           <CheckoutItem cartItem={cartItem} key={cartItem.id} />
         ))}
         <div className="total">
-          <span>Total: ${total}</span>
+          <TotalContainer>Total: ${total}</TotalContainer>
         </div>
 
         {currentUser ? (
           <>
-            <div className="test-warning">
+            <WarningContainer>
               * Please use the following test credit cart for payments *
               <br />
               <p>{`4242 4242 4242 4242 - Exp: ${month}/${year} - CVV: 123`}</p>
-            </div>
+            </WarningContainer>
             <StripeCheckoutButton
               price={total}
               displayName={currentUser.displayName}
@@ -73,7 +79,7 @@ const CheckoutPage = ({ cartItems, total, currentUser }) => {
             <CustomButton>Login to proceed</CustomButton>
           </Link>
         )}
-      </div>
+      </CheckoutPageContainer>
     </>
   );
 };

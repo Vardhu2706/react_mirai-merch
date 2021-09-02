@@ -13,36 +13,37 @@ import { selectCartItems } from "../../redux/cart/Cart-Selector";
 import { toggleCartHidden } from "../../redux/cart/Cart-Actions";
 
 // Importing Styles
-import "./Cart-Dropdown-Styles.scss";
+import {
+  CartDropdownContainer,
+  CartDropdownButton,
+  EmptyMessageContainer,
+  CartItemsContainer,
+} from "./Cart-Dropdown-Styles";
 
 // Importing Components
 import CartItem from "../cart-item/Cart-Item-Component";
-import CustomButton from "../custom-button/Custom-Button-Component";
 
 // Functional Component
 const CartDropdown = ({ cartItems, history, dispatch }) => (
-  <div className="cart-dropdown">
-    {cartItems.length ? (
-      <>
-        <div className="cart-items">
-          {cartItems.map((cartItem) => (
-            <CartItem key={cartItem.id} item={cartItem} />
-          ))}
-        </div>
-        <CustomButton
-          className="custom-button"
-          onClick={() => {
-            history.push("/checkout");
-            dispatch(toggleCartHidden());
-          }}
-        >
-          CHECKOUT
-        </CustomButton>
-      </>
-    ) : (
-      <span className="empty-message">No Items In Cart</span>
-    )}
-  </div>
+  <CartDropdownContainer>
+    <CartItemsContainer>
+      {cartItems.length ? (
+        cartItems.map((cartItem) => (
+          <CartItem key={cartItem.id} item={cartItem} />
+        ))
+      ) : (
+        <EmptyMessageContainer>Your cart is empty</EmptyMessageContainer>
+      )}
+    </CartItemsContainer>
+    <CartDropdownButton
+      onClick={() => {
+        history.push("/checkout");
+        dispatch(toggleCartHidden());
+      }}
+    >
+      GO TO CHECKOUT
+    </CartDropdownButton>
+  </CartDropdownContainer>
 );
 
 // HOF
