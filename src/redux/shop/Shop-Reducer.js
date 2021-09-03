@@ -1,14 +1,11 @@
 // Shop Reducer
 
-// Imports
-import SHOP_DATA from "../../pages/shop/Shop-Data";
-
 // Importing Constants
 import ShopActionTypes from "./Shop-Types";
 
 // Initial State
 const INITIAL_STATE = {
-  collections: SHOP_DATA,
+  collections: null,
 };
 
 const shopReducer = (state = INITIAL_STATE, action) => {

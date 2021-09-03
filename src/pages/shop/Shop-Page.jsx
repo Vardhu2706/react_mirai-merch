@@ -19,8 +19,21 @@ import {
 // Importing Actions
 import { updateCollections } from "../../redux/shop/Shop-Actions";
 
+// Import HOC
+import WithSpinner from "../../components/with-spinner/With-Spinner-Component";
+
+//
+const CollectionsOverviewWithSpinner = WithSpinner(
+  CollectionsOverviewComponent
+);
+const CollectionPageWithSpinner = WithSpinner(CollectionPage);
+
 // Class Component
 class ShopPage extends React.Component {
+  state = {
+    loading: true,
+  };
+
   unsubscribeFromSnapshot = null;
 
   // Component Did Mount
@@ -30,11 +43,13 @@ class ShopPage extends React.Component {
     collectionRef.onSnapshot(async (snapshot) => {
       const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
       updateCollections(collectionsMap);
+      this.setState({ loading: false });
     });
   }
 
   render() {
     const { match } = this.props;
+    const { loading } = this.state;
     return (
       <>
         <Helmet>
@@ -44,11 +59,15 @@ class ShopPage extends React.Component {
           <Route
             exact
             path={`${match.path}`}
-            component={CollectionsOverviewComponent}
+            render={(props) => (
+              <CollectionsOverviewWithSpinner isLoading={loading} {...props} />
+            )}
           />
           <Route
             path={`${match.path}/:collectionId`}
-            component={CollectionPage}
+            render={(props) => (
+              <CollectionPageWithSpinner isLoading={loading} {...props} />
+            )}
           />
         </div>
       </>
