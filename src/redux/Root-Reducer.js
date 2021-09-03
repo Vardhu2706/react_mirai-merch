@@ -9,6 +9,7 @@ import storage from "redux-persist/lib/storage";
 import userReducer from "./user/User-Reducer";
 import cartReducer from "./cart/Cart-Reducer";
 import directoryReducer from "./directory/Directory-Reducer";
+// eslint-disable-next-line
 import shopReducer from "./shop/Shop-Reducer";
 
 // Persist Config

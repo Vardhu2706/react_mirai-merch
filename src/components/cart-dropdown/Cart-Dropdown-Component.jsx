@@ -26,23 +26,25 @@ import CartItem from "../cart-item/Cart-Item-Component";
 // Functional Component
 const CartDropdown = ({ cartItems, history, dispatch }) => (
   <CartDropdownContainer>
-    <CartItemsContainer>
-      {cartItems.length ? (
-        cartItems.map((cartItem) => (
-          <CartItem key={cartItem.id} item={cartItem} />
-        ))
-      ) : (
-        <EmptyMessageContainer>Your cart is empty</EmptyMessageContainer>
-      )}
-    </CartItemsContainer>
-    <CartDropdownButton
-      onClick={() => {
-        history.push("/checkout");
-        dispatch(toggleCartHidden());
-      }}
-    >
-      GO TO CHECKOUT
-    </CartDropdownButton>
+    {cartItems.length ? (
+      <>
+        <CartItemsContainer>
+          {cartItems.map((cartItem) => (
+            <CartItem key={cartItem.id} item={cartItem} />
+          ))}
+        </CartItemsContainer>
+        <CartDropdownButton
+          onClick={() => {
+            history.push("/checkout");
+            dispatch(toggleCartHidden());
+          }}
+        >
+          GO TO CHECKOUT
+        </CartDropdownButton>
+      </>
+    ) : (
+      <EmptyMessageContainer>Your cart is empty</EmptyMessageContainer>
+    )}
   </CartDropdownContainer>
 );
 

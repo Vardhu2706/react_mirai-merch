@@ -59,6 +59,6 @@ export const NameContainer = styled.span`
 
 // Price Container
 export const PriceContainer = styled.span`
-  width: 10%;
+  width: auto;
   text-align: right;
 `;

@@ -24,7 +24,7 @@ export const ShoppingIcon = styled(ShoppingIconSVG)`
 // Item Count Container
 export const ItemCountContainer = styled.span`
   position: absolute;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: bold;
   bottom: 12px;
 `;

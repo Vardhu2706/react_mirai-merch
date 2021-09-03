@@ -58,7 +58,7 @@ const CheckoutPage = ({ cartItems, total, currentUser }) => {
           <CheckoutItem cartItem={cartItem} key={cartItem.id} />
         ))}
         <div className="total">
-          <TotalContainer>Total: ${total}</TotalContainer>
+          <TotalContainer>Total: ₹{total}</TotalContainer>
         </div>
 
         {currentUser ? (
