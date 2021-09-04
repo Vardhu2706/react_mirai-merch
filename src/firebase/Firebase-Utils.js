@@ -24,6 +24,7 @@ export const createUserProfile = async (userAuth, additionalData) => {
   const collectionRef = firestore.collection("users");
 
   const snapshot = await userRef.get();
+  // eslint-disable-next-line no-unused-vars
   const collectionSnapshot = await collectionRef.get();
 
   // If the snapshot doesn't exist, create a document
