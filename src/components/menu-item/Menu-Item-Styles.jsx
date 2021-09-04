@@ -2,9 +2,10 @@
 
 // Importing Helpers
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 // Menu Item Container
-export const MenuItemContainer = styled.div`
+export const MenuItemContainer = styled(motion.div)`
   height: ${({ size }) => (size ? "380px" : "240px")};
   min-width: 30%;
   overflow: hidden;
@@ -15,6 +16,7 @@ export const MenuItemContainer = styled.div`
   border: 1px solid black;
   margin: 0 7.5px 15px;
   overflow: hidden;
+
   &:hover {
     cursor: pointer;
     & .background-image {
@@ -34,9 +36,10 @@ export const MenuItemContainer = styled.div`
 `;
 
 // Background Image Container
-export const BackgroundImageContainer = styled.div`
+export const BackgroundImageContainer = styled(motion.div)`
   width: 100%;
   height: 100%;
+  border: none;
   background-size: cover;
   background-position: center;
   background-image: ${({ imageUrl }) => `url(${imageUrl})`};

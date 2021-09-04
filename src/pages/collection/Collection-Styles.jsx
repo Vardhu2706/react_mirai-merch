@@ -2,9 +2,10 @@
 
 // Importing Helpers
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 // Collection Page Container
-export const CollectionPageContainer = styled.div`
+export const CollectionPageContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
 `;

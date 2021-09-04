@@ -14,7 +14,11 @@ import {
 // Functional Component
 const CollectionPreview = ({ title, items }) => {
   return (
-    <CollectionPreviewContainer>
+    <CollectionPreviewContainer
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.5 }}
+    >
       <TitleContainer>{title}</TitleContainer>
       <PreviewContainer>
         {items

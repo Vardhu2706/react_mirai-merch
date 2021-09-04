@@ -1,10 +1,11 @@
 // Collection Preview
 
 // Importing Helpers
-import styled from 'styled-components';
+import styled from "styled-components";
+import { motion } from "framer-motion";
 
 // Collection Preview Container
-export const CollectionPreviewContainer = styled.div`
+export const CollectionPreviewContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;

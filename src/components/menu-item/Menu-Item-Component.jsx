@@ -16,16 +16,22 @@ import {
 // Functional Component
 const MenuItem = ({ title, imageUrl, size, history, linkUrl, match }) => (
   <MenuItemContainer
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ delay: 0.5 }}
     size={size}
     onClick={() => history.push(`${match.url}${linkUrl}`)}
   >
     <BackgroundImageContainer
-    className='background-image'
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.5 }}
+      className="background-image"
       style={{
         backgroundImage: `url(${imageUrl})`,
       }}
     />
-    <ContentContainer className='content'>
+    <ContentContainer className="content">
       <ContentTitle>{title}</ContentTitle>
       <ContentSubtitle>SHOP NOW</ContentSubtitle>
     </ContentContainer>

@@ -26,7 +26,11 @@ const CollectionPage = ({ collection }) => {
       <Helmet>
         <title>{`Mirai Merch | ${title}`}</title>
       </Helmet>
-      <CollectionPageContainer>
+      <CollectionPageContainer
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5 }}
+      >
         <CollectionTitle>{title}</CollectionTitle>
         <CollectionItemsContainer>
           {items.map((item) => (
