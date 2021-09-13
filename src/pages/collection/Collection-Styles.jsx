@@ -8,6 +8,8 @@ import { motion } from "framer-motion";
 export const CollectionPageContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 // Collection Title
